@@ -11,13 +11,23 @@
   "files": [
     "generators"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Fabian Morón Zirfas",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^13.7.7",
     "@types/yeoman-generator": "^3.1.4",
     "glob": "^7.1.6",
     "mkdirp": "^1.0.3",
     "yeoman-generator": "^4.6.0"
-  }
+  },
+  "main": "generators/index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas/issues"
+  },
+  "homepage": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas#readme"
 }
