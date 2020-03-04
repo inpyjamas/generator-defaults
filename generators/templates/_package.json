@@ -1,0 +1,125 @@
+{
+  "name": "<%= name %>",
+  "private": true,
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc -p .",
+    "start": "nodemon",
+    "lint-staged": "lint-staged",
+    "upgrade": "echo && echo && echo \"performing hard upgrade.\" echo && echo  && read -p \"Are you sure?(y/N) \" -n 1 -r  && if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi && npx npm-check-updates -u && npm install"
+  },
+  "author": "Fabian Morón Zirfas",
+  "contributors": [],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "4.17.2",
+    "@types/morgan": "1.9.0",
+    "@types/jest": "25.1.3",
+    "@types/node": "13.7.7",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
+    "@typescript-eslint/parser": "2.22.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-jest": "23.8.1",
+    "jest": "25.1.0",
+    "nodemon": "2.0.2",
+    "prettier": "1.19.1",
+    "ts-jest": "25.2.1",
+    "typescript": "3.8.3",
+    "cz-conventional-changelog": "3.1.0"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "morgan": "1.9.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jest-environment-node",
+    "testPathIgnorePatterns": ["node_modules/", "<rootDir>/dist"]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "watch": [
+      "./src"
+    ],
+    "exec": "./node_modules/.bin/tsc -p . && node -r dotenv/config --inspect dist/index.js",
+    "ext": "ts,json",
+    "restartable": "rs",
+    "verbose": true,
+    "env": {
+      "NODE_ENV": "development",
+      "NODE_DOCKER_ENV": "0"
+    }
+  },
+  "prettier": {
+    "printWidth": 80
+  },
+  "renovate":{
+    "extends": [
+      "config:base"
+    ],
+    "packageRules": [
+      {
+        "updateTypes": ["minor", "patch", "pin", "digest"],
+        "automerge": true
+      }
+    ]
+  },
+  "eslintConfig": {
+    "ignorePatterns":["node_modules", "dist", "coverage"],
+    "env": {
+      "jest/globals": true
+    },
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:jest/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "lint-staged": {
+    "**/*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ],
+    "**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md)": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm t && npm run lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
