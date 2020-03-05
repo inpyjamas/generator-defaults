@@ -1,4 +1,5 @@
 const Generator = require("yeoman-generator");
+const path = require("path");
 const glob = require("glob");
 let type = "ts";
 module.exports = class extends Generator {
@@ -44,34 +45,29 @@ module.exports = class extends Generator {
       }
     );
 
-    this.writeRawFiles(type);
-    this.writeRawFiles("common");
+    this.fs.copy(
+      `${path.resolve(__dirname, type)}/**/*`,
+      this.destinationPath(),
+      {
+        globOptions: { dot: true }
+      }
+    );
+    this.fs.copy(
+      `${path.resolve(__dirname, "common")}/**/*`,
+      this.destinationPath(),
+      {
+        globOptions: { dot: true }
+      }
+    );
   }
 
-  // @ts-ignore
-  writeRawFiles(templateName) {
-    const templateFiles = glob.sync(`${templateName}/**/[!_]*`, {
-      nodir: true,
-      cwd: __dirname,
-      dot: true
-    });
-    templateFiles.forEach(filePath => {
-      const templatePath = this.templatePath(filePath).replace("templates", "");
-      const destPath = this.destinationPath(filePath)
-        .replace(type, "")
-        .replace("common", "");
-      // @ts-ignore
-      this.fs.copy(templatePath, destPath, this.props);
-    });
-  }
-
-  install() {
-    this.installDependencies({
-      npm: true,
-      bower: false
-    });
-  }
-  end() {
-    this.spawnCommand("npm", ["run", "upgrade"]);
-  }
+  // install() {
+  //   this.installDependencies({
+  //     npm: true,
+  //     bower: false
+  //   });
+  // }
+  // end() {
+  //   this.spawnCommand("npm", ["run", "upgrade"]);
+  // }
 };
