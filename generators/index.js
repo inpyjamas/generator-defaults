@@ -61,13 +61,13 @@ module.exports = class extends Generator {
     );
   }
 
-  // install() {
-  //   this.installDependencies({
-  //     npm: true,
-  //     bower: false
-  //   });
-  // }
-  // end() {
-  //   this.spawnCommand("npm", ["run", "upgrade"]);
-  // }
+  install() {
+    this.installDependencies({
+      npm: true,
+      bower: false
+    });
+  }
+  end() {
+    this.spawnCommand("npm", ["run", "upgrade"]);
+  }
 };
