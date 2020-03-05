@@ -1,6 +1,6 @@
 {
   "name": "generator-aguyinhispyjamas",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "my personal opinionated generator for typescript eslint prettier express jest nodemon husky",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
