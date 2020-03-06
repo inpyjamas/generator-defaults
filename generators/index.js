@@ -1,7 +1,7 @@
 const Generator = require("yeoman-generator");
 const path = require("path");
 const glob = require("glob");
-let type = "ts";
+let type = "typescript";
 module.exports = class extends Generator {
   async prompting() {
     this.answers = await this.prompt([
@@ -15,7 +15,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "type",
         message: "Select your setup type",
-        choices: ["ts"],
+        choices: ["typescript"],
         filter: function(val) {
           return val.toLowerCase();
         }
@@ -32,9 +32,12 @@ module.exports = class extends Generator {
     }
     let pgkTemplateName = "";
     switch (this.answers.type) {
-      case "ts": {
+      case "typescript": {
         pgkTemplateName = "_package.json";
         break;
+      }
+      default: {
+        throw new Error("No default case defiend");
       }
     }
     this.fs.copyTpl(
