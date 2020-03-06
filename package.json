@@ -3,7 +3,10 @@
   "version": "0.1.5",
   "description": "my personal opinionated generator for typescript eslint prettier express jest nodemon husky",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "tsc -p .",
+    "dev": "tsc -p . --watch",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "yeoman-generator"
@@ -14,14 +17,28 @@
   "author": "Fabian Morón Zirfas",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^13.7.7",
-    "@types/yeoman-generator": "^3.1.4",
     "glob": "^7.1.6",
     "mkdirp": "^1.0.3",
     "yeoman-generator": "^4.6.0"
   },
   "main": "generators/index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.7",
+    "@types/yeoman-generator": "^3.1.4",
+    "@types/yeoman-test": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3",
+    "yeoman-test": "^2.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas.git"
@@ -29,5 +46,55 @@
   "bugs": {
     "url": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas/issues"
   },
-  "homepage": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas#readme"
+  "homepage": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jest-environment-node",
+    "testPathIgnorePatterns": [
+      "node_modules/",
+      "<rootDir>/generators"
+    ]
+  },
+  "prettier": {
+    "printWidth": 80
+  },
+  "eslintConfig": {
+    "ignorePatterns": [
+      "node_modules",
+      "dist",
+      "coverage",
+      "generators/index.js"
+    ],
+    "env": {
+      "jest/globals": true
+    },
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:jest/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  }
 }
