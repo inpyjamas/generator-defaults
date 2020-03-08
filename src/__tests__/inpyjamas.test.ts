@@ -5,6 +5,8 @@ import assert from "yeoman-assert";
 import fs from "fs";
 // TODO: Read https://medium.com/@adamdziendziel/how-to-write-tests-for-yeoman-generator-9376ea94201
 // TODO: Make folders of templates and common files relative to all files
+// TODO: Do we need npm install yeoman-assert ?
+// TODO: Do we need mkdirp ?
 afterEach(() => {
   rimraf.sync(path.join(__dirname, "tmp"));
 });
