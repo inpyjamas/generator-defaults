@@ -6,7 +6,7 @@
     "test": "jest",
     "build": "tsc -p .",
     "dev": "tsc -p . --watch",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "keywords": [
     "yeoman-generator"
@@ -59,9 +59,13 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-node",
+    "testMatch": [
+      "<rootDir>/**/?(*.)+(test).[jt]s?(x)"
+    ],
     "testPathIgnorePatterns": [
       "node_modules/",
-      "<rootDir>/generators"
+      "<rootDir>/generators/app",
+      "<rootDir>/generators/templates/typescript-express"
     ]
   },
   "prettier": {
