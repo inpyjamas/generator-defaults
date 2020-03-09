@@ -44,12 +44,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas.git"
+    "url": "git+https://github.com/@inpyjamas/generator-defaults.git"
   },
   "bugs": {
-    "url": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas/issues"
+    "url": "https://github.com/@inpyjamas/generator-defaults/issues"
   },
-  "homepage": "https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas#readme",
+  "homepage": "https://github.com/@inpyjamas/generator-defaults#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
