@@ -1,5 +1,6 @@
 # generator-aguyinhispyjamas
 
+![Node.js CI](https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas/workflows/Node.js%20CI/badge.svg)
 
 ## About
 

@@ -54,6 +54,7 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
             this.answers = yield this.prompt(questions);
             this.answers.name = this.answers.name.replace(/[^a-zA-Z]/g, "");
             this.answers.name = this.answers.name.replace(/ /g, "-");
+            this.log(JSON.stringify(this.answers));
         });
     }
     writing() {
@@ -97,7 +98,8 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
     }
     end() {
         if (this.answers && this.answers.upgrade === true) {
-            this.spawnCommand("npm", ["run", "upgrade"]);
+            this.spawnCommand("npx", ["npm-check-updates", "-u"]);
+            this.spawnCommand("npm", ["i"]);
         }
     }
 }
