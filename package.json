@@ -1,5 +1,5 @@
 {
-  "name": "generator-aguyinhispyjamas",
+  "name": "@inpyjamas/generator-defaults",
   "version": "0.2.1",
   "description": "my personal opinionated generator for typescript eslint prettier express jest nodemon husky",
   "scripts": {
