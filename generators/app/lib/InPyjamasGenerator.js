@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const yeoman_generator_1 = __importDefault(require("yeoman-generator"));
 const path_1 = __importDefault(require("path"));
+const util_1 = require("./util");
 // type ProjectTypes = "typescript-express";
 const projectTypeChoices = ["typescript-express"];
 // let type: ProjectTypes = projectTypeChoices[0];
@@ -36,9 +37,7 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
                     name: "type",
                     message: "Select your setup type",
                     choices: projectTypeChoices,
-                    filter: function (val) {
-                        return val.toLowerCase();
-                    }
+                    filter: util_1.toLowerCase
                 },
                 {
                     type: "list",
