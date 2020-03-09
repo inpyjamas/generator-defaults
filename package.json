@@ -36,12 +36,10 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
-    "mkdirp": "^1.0.3",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3",
-    "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.2.0"
   },
   "repository": {
@@ -69,7 +67,10 @@
       "<rootDir>/generators/templates/typescript-express"
     ],
     "collectCoverage": true,
-   "coverageReporters": ["lcov", "text"],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,
