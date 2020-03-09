@@ -5,7 +5,7 @@ import rimraf from "rimraf";
 import fs from "fs";
 // TODO: Read https://medium.com/@adamdziendziel/how-to-write-tests-for-yeoman-generator-9376ea94201
 const testFolderPath = path.join(__dirname, "tmp");
-afterAll(() => {
+afterEach(() => {
   rimraf.sync(path.resolve(__dirname, "tmp"));
 });
 

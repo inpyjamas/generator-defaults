@@ -15,7 +15,7 @@ beforeEach(() => {
       upgrade: false
     });
 });
-afterAll(() => {
+afterEach(() => {
   rimraf.sync(path.resolve(__dirname, "tmp"));
 });
 describe("typescript-express template test", () => {
