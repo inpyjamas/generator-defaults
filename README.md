@@ -1,6 +1,5 @@
-# generator-aguyinhispyjamas
+# @inpyjamas/generator-defaults
 
-![Node.js CI](https://github.com/fabianmoronzirfas/generator-aguyinhispyjamas/workflows/Node.js%20CI/badge.svg)
 
 ## About
 
@@ -13,13 +12,13 @@ npm install yo -g
 ```
 
 ```bash
-npm install generator-aguyinhispyjamas -g
+npm install @inpyjamas/generator-defaults -g
 ```
 
 ## Usage
 
 ```bash
-yo aguyinhispyjamas
+yo @inpyjamas/defaults
 # Will prompt for your projects name and what type of project you want
 # currently typescript only
 ```
