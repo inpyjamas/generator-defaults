@@ -4,17 +4,17 @@ import rimraf from "rimraf";
 // import assert from "yeoman-assert";
 import fs from "fs";
 // TODO: Read https://medium.com/@adamdziendziel/how-to-write-tests-for-yeoman-generator-9376ea94201
-const testFolderPath = path.join(__dirname, "tmp");
-afterAll(() => {
-  rimraf.sync(path.resolve(__dirname, "tmp"));
-});
+let testFolderPath = ""; // = path.resolve(__dirname, "./tmp");
+// afterAll(() => {
+//   rimraf.sync(path.resolve(__dirname, "tmp"));
+// });
 
 beforeEach(() => {
-  rimraf.sync(path.resolve(__dirname, "tmp"));
-
   return helpers
     .run(path.resolve(__dirname, "../index"))
-    .inDir(path.join(testFolderPath))
+    .inTmpDir(dir => {
+      testFolderPath = dir;
+    })
     .withPrompts({
       name: "foo",
       type: "typescript-express",
