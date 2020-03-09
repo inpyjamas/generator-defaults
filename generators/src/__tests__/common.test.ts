@@ -6,6 +6,7 @@ import fs from "fs";
 import { toLowerCase } from "../lib/util";
 const testFolderPath = path.join(__dirname, "tmp");
 beforeEach(() => {
+  rimraf.sync(path.resolve(__dirname, "tmp"));
   return helpers
     .run(path.resolve(__dirname, "../index"))
     .inDir(path.join(testFolderPath))
@@ -15,7 +16,7 @@ beforeEach(() => {
       upgrade: false
     });
 });
-afterEach(() => {
+afterAll(() => {
   rimraf.sync(path.resolve(__dirname, "tmp"));
 });
 describe("typescript-express template test", () => {

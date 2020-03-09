@@ -5,11 +5,13 @@ import rimraf from "rimraf";
 import fs from "fs";
 // TODO: Read https://medium.com/@adamdziendziel/how-to-write-tests-for-yeoman-generator-9376ea94201
 const testFolderPath = path.join(__dirname, "tmp");
-afterEach(() => {
+afterAll(() => {
   rimraf.sync(path.resolve(__dirname, "tmp"));
 });
 
 beforeEach(() => {
+  rimraf.sync(path.resolve(__dirname, "tmp"));
+
   return helpers
     .run(path.resolve(__dirname, "../index"))
     .inDir(path.join(testFolderPath))
