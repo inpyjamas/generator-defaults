@@ -3,7 +3,8 @@
   "version": "0.1.5",
   "description": "my personal opinionated generator for typescript eslint prettier express jest nodemon husky",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
+    "test:ci": "jest --collect-coverage --runInBand",
     "build": "tsc -p .",
     "dev": "tsc -p . --watch",
     "prepare": "npm run build"
@@ -22,8 +23,8 @@
   },
   "main": "generators/index.js",
   "devDependencies": {
-    "@types/jest": "^25.1.3",
-    "@types/node": "^13.7.7",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.0",
     "@types/rimraf": "^2.0.3",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^3.1.4",
@@ -35,13 +36,11 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
-    "mkdirp": "^1.0.3",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3",
-    "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^2.2.0"
+    "yeoman-test": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -66,7 +65,20 @@
       "node_modules/",
       "<rootDir>/generators/app",
       "<rootDir>/generators/templates/typescript-express"
-    ]
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "prettier": {
     "printWidth": 80

@@ -1,5 +1,6 @@
 import Generator from "yeoman-generator";
 import path from "path";
+import { toLowerCase } from "./util";
 // type ProjectTypes = "typescript-express";
 const projectTypeChoices: string[] = ["typescript-express"];
 
@@ -24,9 +25,7 @@ export class InPyjamasGenerator extends Generator {
         name: "type",
         message: "Select your setup type",
         choices: projectTypeChoices,
-        filter: function(val: string): string {
-          return val.toLowerCase();
-        }
+        filter: toLowerCase
       },
       {
         type: "list",
@@ -42,6 +41,7 @@ export class InPyjamasGenerator extends Generator {
     this.answers = await this.prompt(questions);
     this.answers.name = this.answers.name.replace(/[^a-zA-Z]/g, "");
     this.answers.name = this.answers.name.replace(/ /g, "-");
+    this.log(JSON.stringify(this.answers));
   }
 
   public writing(): void {
