@@ -64,7 +64,7 @@
     "testPathIgnorePatterns": [
       "node_modules/",
       "<rootDir>/generators/app",
-      "<rootDir>/generators/templates/typescript-express"
+      "<rootDir>/generators/templates/*"
     ],
     "collectCoverage": true,
     "coverageReporters": [

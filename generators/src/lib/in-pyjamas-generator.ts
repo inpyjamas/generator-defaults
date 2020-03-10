@@ -1,13 +1,14 @@
+import { ProjectTypes } from "./common/types";
 import { devDependencies } from "./dev-dependencies";
 import { dependencies } from "./dependencies";
 import Generator from "yeoman-generator";
 import path from "path";
 import { toLowerCase } from "./util";
-type ProjectTypes = "typescript-express";
-const projectTypeChoices: ProjectTypes[] = ["typescript-express"];
 
-// let type: ProjectTypes = projectTypeChoices[0];
-
+const projectTypeChoices: ProjectTypes[] = [
+  "typescript-express",
+  "typescript-jekyll-webpack"
+];
 export class InPyjamasGenerator extends Generator {
   public answers: Generator.Answers = {};
   constructor(args: string | string[], options: {}) {
@@ -86,7 +87,8 @@ export class InPyjamasGenerator extends Generator {
 
   public install(): void {
     switch (this.answers.type) {
-      case "typescript-express": {
+      case "typescript-express":
+      case "typescript-jekyll-webpack": {
         this.npmInstall(dependencies[this.answers.type], {
           "save-exact": true
         });
@@ -107,6 +109,9 @@ export class InPyjamasGenerator extends Generator {
     if (this.answers.upgrade === true) {
       this.spawnCommand("npx", ["npm-check-updates", "-u"]);
       this.spawnCommand("npm", ["i"]);
+    }
+    if (this.answers.type === "typescript-jekyll-webpack") {
+      this.log("Run `npm run dev` to start webpack and jekyll");
     }
   }
 }

@@ -1,0 +1,121 @@
+{
+  "name": "<%= name %>",
+  "private": true,
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "watch:ts": "tsc -p . --watch",
+    "build:ts": "tsc -p .",
+    "build": "./tools/build.sh",
+    "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
+    "webpack:dev": "webpack --progress --info-verbosity --config webpack/webpack.config.dev.js",
+    "watch:jekyll": "tools/run-jekyll.sh",
+    "jekyll": "tools/run-jekyll.sh",
+    "dev": "npm-run-all --parallel webpack:dev watch:jekyll",
+    "lint": "eslint --fix src/assets/js",
+    "lint-staged": "lint-staged"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "devDependencies": {},
+  "dependencies": {},
+  "lint-staged": {
+    "**/*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ],
+    "**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md)": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm t && npm run lint-staged"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jest-environment-node",
+    "testPathIgnorePatterns": [
+      "node_modules/",
+      "<rootDir>/assets/js"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ],
+    "root": true,
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest/globals": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:jest/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "browserslist": [
+    ">5%",
+    "last 2 versions",
+    "not dead",
+    "Firefox ESR",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
+  "//comment-postcss": "cssnano is configured based on NODE_ENV",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

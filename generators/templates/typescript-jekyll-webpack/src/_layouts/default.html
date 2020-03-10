@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{site.title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{site.url}}/assets/css/index.css" />
+  </head>
+  <body>
+    <header></header>
+    <section class="section">
+      <div class="hero">
+        <h1 class="is-title is-1">
+          {{page.title}}
+
+        </h1>
+      </div>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-full is-centered">
+            {{content}}
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+    <script src="/assets/js/index.bundle.js"></script>
+  </body>
+</html>
