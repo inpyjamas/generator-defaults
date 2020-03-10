@@ -1,13 +1,15 @@
+import { devDependencies } from "./dev-dependencies";
+import { dependencies } from "./dependencies";
 import Generator from "yeoman-generator";
 import path from "path";
 import { toLowerCase } from "./util";
-// type ProjectTypes = "typescript-express";
-const projectTypeChoices: string[] = ["typescript-express"];
+type ProjectTypes = "typescript-express";
+const projectTypeChoices: ProjectTypes[] = ["typescript-express"];
 
 // let type: ProjectTypes = projectTypeChoices[0];
 
 export class InPyjamasGenerator extends Generator {
-  public answers: Generator.Answers | undefined;
+  public answers: Generator.Answers = {};
   constructor(args: string | string[], options: {}) {
     super(args, options);
     this.sourceRoot(path.resolve(__dirname, "../../templates"));
@@ -41,13 +43,10 @@ export class InPyjamasGenerator extends Generator {
     this.answers = await this.prompt(questions);
     this.answers.name = this.answers.name.replace(/[^a-zA-Z]/g, "");
     this.answers.name = this.answers.name.replace(/ /g, "-");
-    this.log(JSON.stringify(this.answers));
+    // this.log(JSON.stringify(this.answers));
   }
 
   public writing(): void {
-    if (this.answers === undefined) {
-      throw new Error("answers not defined");
-    }
     // let pgkTemplateName = "";
     // switch (this.answers.type as ProjectTypes) {
     //   case "typescript-express": {
@@ -79,9 +78,6 @@ export class InPyjamasGenerator extends Generator {
     this.fs.copyTpl(
       `${path.resolve(this.templatePath(), this.answers.type)}/**/*`,
       this.destinationPath(),
-
-      // this.templatePath(pgkTemplateName),
-      // this.destinationPath("package.json"),
       {
         name: this.answers.name
       }
@@ -89,13 +85,26 @@ export class InPyjamasGenerator extends Generator {
   }
 
   public install(): void {
-    this.installDependencies({
-      npm: true,
-      bower: false
-    });
+    switch (this.answers.type) {
+      case "typescript-express": {
+        this.npmInstall(dependencies[this.answers.type], {
+          "save-exact": true
+        });
+        this.npmInstall(devDependencies[this.answers.type], {
+          "save-exact": true,
+          "save-dev": true
+        });
+        break;
+      }
+    }
+    // this.npmInstall();
+    // this.installDependencies({
+    //   npm: true,
+    //   bower: false
+    // });
   }
   public end(): void {
-    if (this.answers && this.answers.upgrade === true) {
+    if (this.answers.upgrade === true) {
       this.spawnCommand("npx", ["npm-check-updates", "-u"]);
       this.spawnCommand("npm", ["i"]);
     }

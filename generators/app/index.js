@@ -1,3 +1,3 @@
 "use strict";
-const InPyjamasGenerator_1 = require("./lib/InPyjamasGenerator");
-module.exports = InPyjamasGenerator_1.InPyjamasGenerator;
+const in_pyjamas_generator_1 = require("./lib/in-pyjamas-generator");
+module.exports = in_pyjamas_generator_1.InPyjamasGenerator;

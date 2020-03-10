@@ -1,8 +1,10 @@
+import { devDependencies } from "./../lib/dev-dependencies";
+import { dependencies } from "./../lib/dependencies";
 import helpers from "yeoman-test";
 import path from "path";
 import { InPyjamasGenerator } from "../lib/in-pyjamas-generator";
-const endSpy = jest
-  .spyOn(InPyjamasGenerator.prototype, "spawnCommand")
+const installSpy = jest
+  .spyOn(InPyjamasGenerator.prototype, "npmInstall")
   .mockImplementation(jest.fn());
 
 beforeEach(() => {
@@ -14,14 +16,21 @@ beforeEach(() => {
       .withPrompts({
         name: "foo",
         type: "typescript-express",
-        upgrade: true
+        upgrade: false
       })
   );
 });
 
 describe("typescript-express template test", () => {
   test("should use the provided name in templates", () => {
-    expect(endSpy).toHaveBeenCalledWith("npx", ["npm-check-updates", "-u"]);
-    expect(endSpy).toHaveBeenCalledWith("npm", ["i"]);
+    // console.log(installSpy.mock);
+    expect(installSpy).toHaveBeenCalledWith(
+      dependencies["typescript-express"],
+      { "save-exact": true }
+    );
+    expect(installSpy).toHaveBeenCalledWith(
+      devDependencies["typescript-express"],
+      { "save-exact": true, "save-dev": true }
+    );
   });
 });
