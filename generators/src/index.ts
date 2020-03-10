@@ -1,2 +1,2 @@
-import { InPyjamasGenerator } from "./lib/InPyjamasGenerator";
+import { InPyjamasGenerator } from "./lib/in-pyjamas-generator";
 export = InPyjamasGenerator;

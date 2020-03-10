@@ -1,8 +1,10 @@
+import { devDependencies } from "./dev-dependencies";
+import { dependencies } from "./dependencies";
 import Generator from "yeoman-generator";
 import path from "path";
 import { toLowerCase } from "./util";
-// type ProjectTypes = "typescript-express";
-const projectTypeChoices: string[] = ["typescript-express"];
+type ProjectTypes = "typescript-express";
+const projectTypeChoices: ProjectTypes[] = ["typescript-express"];
 
 // let type: ProjectTypes = projectTypeChoices[0];
 
@@ -89,10 +91,30 @@ export class InPyjamasGenerator extends Generator {
   }
 
   public install(): void {
-    this.installDependencies({
-      npm: true,
-      bower: false
-    });
+    if (this.answers === undefined) {
+      throw new Error("answers not defined");
+    }
+    switch (this.answers.type) {
+      case "typescript-express": {
+        this.npmInstall(dependencies[this.answers.type], {
+          "save-exact": true
+        });
+        this.npmInstall(devDependencies[this.answers.type], {
+          "save-exact": true,
+          "save-dev": true
+        });
+        break;
+      }
+      default: {
+        // this.log("no default case defiend");
+        throw new Error("no default case defiend");
+      }
+    }
+    // this.npmInstall();
+    // this.installDependencies({
+    //   npm: true,
+    //   bower: false
+    // });
   }
   public end(): void {
     if (this.answers && this.answers.upgrade === true) {

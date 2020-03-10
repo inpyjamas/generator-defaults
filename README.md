@@ -25,17 +25,17 @@ yo @inpyjamas/defaults
 
 This will create (in the current working directory) the following setup(s)
 
-### Type `ts`:
+### Type `typescript-express`:
 
 - Typescript
 - Jest
-- Eslint 
+- Eslint
 - Prettier
 - Nodemon
 - Husky
 - Lint-Staged
 - Express with Morgan, Cors and Dotenv
-- CZ Conventional Changelog
+- CZ Conventional Change-log
 - Renovate Bot
 
 

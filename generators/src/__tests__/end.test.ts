@@ -1,6 +1,6 @@
 import helpers from "yeoman-test";
 import path from "path";
-import { InPyjamasGenerator } from "../lib/InPyjamasGenerator";
+import { InPyjamasGenerator } from "../lib/in-pyjamas-generator";
 const endSpy = jest
   .spyOn(InPyjamasGenerator.prototype, "spawnCommand")
   .mockImplementation(jest.fn());
