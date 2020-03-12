@@ -1,0 +1,36 @@
+source: src
+title: <%= name %>
+description: >- #<-- means ignore newline until next key
+  Microsite for the Project <%= name %>
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  parse_block_html: true
+  footnote_backlink:
+    "↑"
+    # https://kramdown.gettalong.org/syntax_highlighter/rouge.html
+  syntax_highlighter: rouge
+
+exclude:
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+  - assets/ts
+  # - assets/css/partials
+  # - assets/css/index.scss
+  # - assets/css
+
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+plugins:
+  - jekyll-sitemap
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"

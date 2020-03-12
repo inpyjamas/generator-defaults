@@ -17,11 +17,14 @@ const dependencies_1 = require("./dependencies");
 const yeoman_generator_1 = __importDefault(require("yeoman-generator"));
 const path_1 = __importDefault(require("path"));
 const util_1 = require("./util");
-const projectTypeChoices = ["typescript-express"];
-// let type: ProjectTypes = projectTypeChoices[0];
+const projectTypeChoices = [
+    "typescript-express",
+    "typescript-jekyll-webpack"
+];
 class InPyjamasGenerator extends yeoman_generator_1.default {
     constructor(args, options) {
         super(args, options);
+        this.answers = {};
         this.sourceRoot(path_1.default.resolve(__dirname, "../../templates"));
     }
     prompting() {
@@ -54,13 +57,10 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
             this.answers = yield this.prompt(questions);
             this.answers.name = this.answers.name.replace(/[^a-zA-Z]/g, "");
             this.answers.name = this.answers.name.replace(/ /g, "-");
-            this.log(JSON.stringify(this.answers));
+            // this.log(JSON.stringify(this.answers));
         });
     }
     writing() {
-        if (this.answers === undefined) {
-            throw new Error("answers not defined");
-        }
         // let pgkTemplateName = "";
         // switch (this.answers.type as ProjectTypes) {
         //   case "typescript-express": {
@@ -83,19 +83,14 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
          * and replace all the ejs template strings
          * uses https://github.com/SBoudrias/mem-fs-editor under the hood
          */
-        this.fs.copyTpl(`${path_1.default.resolve(this.templatePath(), this.answers.type)}/**/*`, this.destinationPath(), 
-        // this.templatePath(pgkTemplateName),
-        // this.destinationPath("package.json"),
-        {
+        this.fs.copyTpl(`${path_1.default.resolve(this.templatePath(), this.answers.type)}/**/*`, this.destinationPath(), {
             name: this.answers.name
         });
     }
     install() {
-        if (this.answers === undefined) {
-            throw new Error("answers not defined");
-        }
         switch (this.answers.type) {
-            case "typescript-express": {
+            case "typescript-express":
+            case "typescript-jekyll-webpack": {
                 this.npmInstall(dependencies_1.dependencies[this.answers.type], {
                     "save-exact": true
                 });
@@ -105,10 +100,6 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
                 });
                 break;
             }
-            default: {
-                // this.log("no default case defiend");
-                throw new Error("no default case defiend");
-            }
         }
         // this.npmInstall();
         // this.installDependencies({
@@ -117,7 +108,7 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
         // });
     }
     end() {
-        if (this.answers && this.answers.upgrade === true) {
+        if (this.answers.upgrade === true) {
             this.spawnCommand("npx", ["npm-check-updates", "-u"]);
             this.spawnCommand("npm", ["i"]);
         }
