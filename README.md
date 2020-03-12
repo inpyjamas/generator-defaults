@@ -1,6 +1,6 @@
 # @inpyjamas/generator-defaults
 
-![npm (scoped)](https://img.shields.io/npm/v/@inpyjamas/generator-defaults) ![Node.js Test CI](https://github.com/inpyjamas/generator-defaults/workflows/Node.js%20Test%20CI/badge.svg) ![Build with love](https://img.shields.io/badge/build%20with-%E2%9D%A4%EF%B8%8F-success)
+[![npm (scoped)](https://img.shields.io/npm/v/@inpyjamas/generator-defaults)](https://www.npmjs.com/package/@inpyjamas/generator-defaults) [![Node.js Test CI](https://github.com/inpyjamas/generator-defaults/workflows/Node.js%20Test%20CI/badge.svg)](https://github.com/inpyjamas/generator-defaults/actions?query=workflow%3A%22Node.js+Test+CI%22) ![Build with love](https://img.shields.io/badge/build%20with-%E2%9D%A4%EF%B8%8F-success)
 
 ## About
 
