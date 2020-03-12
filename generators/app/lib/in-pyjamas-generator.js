@@ -112,6 +112,9 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
             this.spawnCommand("npx", ["npm-check-updates", "-u"]);
             this.spawnCommand("npm", ["i"]);
         }
+        if (this.answers.type === "typescript-jekyll-webpack") {
+            this.log("Run `npm run dev` to start webpack and jekyll");
+        }
     }
 }
 exports.InPyjamasGenerator = InPyjamasGenerator;
