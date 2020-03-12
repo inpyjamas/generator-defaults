@@ -3,8 +3,8 @@
   "version": "0.3.0",
   "description": "my personal opinionated generator for typescript eslint prettier express jest nodemon husky",
   "scripts": {
-    "test": "jest --runInBand",
-    "test:ci": "jest --collect-coverage --runInBand",
+    "test": "jest",
+    "test:ci": "jest --collect-coverage",
     "build": "tsc -p .",
     "dev": "tsc -p . --watch",
     "prepare": "npm run build"
@@ -61,6 +61,7 @@
     "testMatch": [
       "<rootDir>/**/?(*.)+(test).[jt]s?(x)"
     ],
+    "modulePathIgnorePatterns": ["<rootDir>/generators/templates"],
     "testPathIgnorePatterns": [
       "node_modules/",
       "<rootDir>/generators/app",
