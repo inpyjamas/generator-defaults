@@ -2,5 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dependencies = {
     "typescript-express": ["cors", "dotenv", "express", "morgan"],
-    "typescript-jekyll-webpack": ["bulma"]
+    "typescript-jekyll-webpack": ["bulma"],
+    basiljs: ["basiljs/basil.js#develop"]
 };

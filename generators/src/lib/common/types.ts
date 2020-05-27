@@ -1,1 +1,4 @@
-export type ProjectTypes = "typescript-express" | "typescript-jekyll-webpack";
+export type ProjectTypes =
+  | "typescript-express"
+  | "typescript-jekyll-webpack"
+  | "basiljs";

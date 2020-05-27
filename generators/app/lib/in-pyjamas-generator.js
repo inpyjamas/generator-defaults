@@ -19,7 +19,8 @@ const path_1 = __importDefault(require("path"));
 const util_1 = require("./util");
 const projectTypeChoices = [
     "typescript-express",
-    "typescript-jekyll-webpack"
+    "typescript-jekyll-webpack",
+    "basiljs"
 ];
 class InPyjamasGenerator extends yeoman_generator_1.default {
     constructor(args, options) {
@@ -94,9 +95,15 @@ class InPyjamasGenerator extends yeoman_generator_1.default {
                 this.npmInstall(dependencies_1.dependencies[this.answers.type], {
                     "save-exact": true
                 });
-                this.npmInstall(dev_dependencies_1.devDependencies[this.answers.type], {
+                this.npmInstall([...dev_dependencies_1.devDependencies[this.answers.type], ...dev_dependencies_1.devDependencies["shared"]], {
                     "save-exact": true,
                     "save-dev": true
+                });
+                break;
+            }
+            case "basiljs": {
+                this.npmInstall(dependencies_1.dependencies[this.answers.type], {
+                    "save-exact": true
                 });
                 break;
             }

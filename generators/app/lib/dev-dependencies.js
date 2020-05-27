@@ -1,54 +1,42 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.devDependencies = {
-    "typescript-express": [
-        "@types/express",
-        "@types/morgan",
+    shared: [
         "@types/jest",
         "@types/node",
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser",
-        "eslint",
+        "cz-conventional-changelog",
         "eslint-config-prettier",
         "eslint-plugin-jest",
+        "eslint-plugin-prettier",
+        "eslint",
         "jest",
-        "nodemon",
         "prettier",
         "ts-jest",
         "typescript",
-        "cz-conventional-changelog"
+        "husky",
+        "lint-staged"
     ],
+    "typescript-express": ["@types/express", "@types/morgan", "nodemon"],
     "typescript-jekyll-webpack": [
-        "eslint-config-prettier",
         "tslib",
-        "@types/jest",
-        "@typescript-eslint/eslint-plugin",
-        "@typescript-eslint/parser",
         "autoprefixer",
         "cross-env",
         "css-loader",
         "cssnano",
-        "cz-conventional-changelog",
-        "eslint",
-        "eslint-plugin-jest",
-        "eslint-plugin-prettier",
         "extract-loader",
         "file-loader",
-        "husky",
-        "jest",
-        "lint-staged",
         "node-sass",
         "npm-run-all",
         "postcss-cli",
         "postcss-load-config",
         "postcss-loader",
-        "prettier",
         "sass-loader",
-        "ts-jest",
         "ts-loader",
-        "typescript",
         "webpack",
         "webpack-cli",
         "webpack-merge"
-    ]
+    ],
+    basiljs: []
 };
