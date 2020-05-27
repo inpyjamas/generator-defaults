@@ -19,19 +19,19 @@
   "license": "MIT",
   "dependencies": {
     "glob": "7.1.6",
-    "yeoman-generator": "4.6.0"
+    "yeoman-generator": "^4.10.1"
   },
   "main": "generators/index.js",
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/node": "^12.12.6",
-    "@types/rimraf": "2.0.3",
+    "@types/rimraf": "^3.0.0",
     "@types/yeoman-assert": "3.1.1",
     "@types/yeoman-generator": "3.1.4",
-    "@types/yeoman-test": "2.0.3",
+    "@types/yeoman-test": "^2.0.4",
     "@typescript-eslint/eslint-plugin": "^3.0.1",
     "@typescript-eslint/parser": "^3.0.1",
-    "cz-conventional-changelog": "3.1.0",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jest": "^23.13.2",
@@ -40,7 +40,7 @@
     "rimraf": "3.0.2",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3",
-    "yeoman-test": "2.0.0"
+    "yeoman-test": "^2.6.0"
   },
   "repository": {
     "type": "git",
