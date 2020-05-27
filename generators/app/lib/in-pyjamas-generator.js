@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InPyjamasGenerator = void 0;
 const dev_dependencies_1 = require("./dev-dependencies");
 const dependencies_1 = require("./dependencies");
 const yeoman_generator_1 = __importDefault(require("yeoman-generator"));
