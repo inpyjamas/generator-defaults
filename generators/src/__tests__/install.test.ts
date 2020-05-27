@@ -6,7 +6,9 @@ import { InPyjamasGenerator } from "../lib/in-pyjamas-generator";
 const installSpy = jest
   .spyOn(InPyjamasGenerator.prototype, "npmInstall")
   .mockImplementation(jest.fn());
-
+afterAll(() => {
+  jest.restoreAllMocks();
+});
 beforeEach(() => {
   return (
     helpers
@@ -29,7 +31,7 @@ describe("typescript-express template test", () => {
       { "save-exact": true }
     );
     expect(installSpy).toHaveBeenCalledWith(
-      devDependencies["typescript-express"],
+      [...devDependencies["typescript-express"], ...devDependencies["shared"]],
       { "save-exact": true, "save-dev": true }
     );
   });

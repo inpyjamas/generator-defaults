@@ -7,7 +7,8 @@ import { toLowerCase } from "./util";
 
 const projectTypeChoices: ProjectTypes[] = [
   "typescript-express",
-  "typescript-jekyll-webpack"
+  "typescript-jekyll-webpack",
+  "basiljs"
 ];
 export class InPyjamasGenerator extends Generator {
   public answers: Generator.Answers = {};
@@ -92,9 +93,18 @@ export class InPyjamasGenerator extends Generator {
         this.npmInstall(dependencies[this.answers.type], {
           "save-exact": true
         });
-        this.npmInstall(devDependencies[this.answers.type], {
-          "save-exact": true,
-          "save-dev": true
+        this.npmInstall(
+          [...devDependencies[this.answers.type], ...devDependencies["shared"]],
+          {
+            "save-exact": true,
+            "save-dev": true
+          }
+        );
+        break;
+      }
+      case "basiljs": {
+        this.npmInstall(dependencies[this.answers.type], {
+          "save-exact": true
         });
         break;
       }
