@@ -12,7 +12,7 @@ afterAll(() => {
 beforeEach(() => {
   return (
     helpers
-      .run(path.resolve(__dirname, "../index"))
+      .run(path.resolve(__dirname, "../index.ts"))
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       .inTmpDir(_dir => {})
       .withPrompts({
