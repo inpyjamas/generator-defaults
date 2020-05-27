@@ -4,7 +4,9 @@ import { InPyjamasGenerator } from "../lib/in-pyjamas-generator";
 const endSpy = jest
   .spyOn(InPyjamasGenerator.prototype, "spawnCommand")
   .mockImplementation(jest.fn());
-
+afterAll(() => {
+  jest.restoreAllMocks();
+});
 beforeEach(() => {
   return (
     helpers

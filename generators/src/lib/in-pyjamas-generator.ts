@@ -4,7 +4,6 @@ import { dependencies } from "./dependencies";
 import Generator from "yeoman-generator";
 import path from "path";
 import { toLowerCase } from "./util";
-import { runInThisContext } from "vm";
 
 const projectTypeChoices: ProjectTypes[] = [
   "typescript-express",
