@@ -119,5 +119,21 @@
         }
       ]
     }
+  },
+  "renovate": {
+    "extends": [
+      "config:base"
+    ],
+    "packageRules": [
+      {
+        "updateTypes": [
+          "minor",
+          "patch",
+          "pin",
+          "digest"
+        ],
+        "automerge": true
+      }
+    ]
   }
 }
