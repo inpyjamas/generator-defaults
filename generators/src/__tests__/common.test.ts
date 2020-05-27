@@ -6,7 +6,7 @@ import { toLowerCase } from "../lib/util";
 let testFolderPath = "";
 beforeEach(() => {
   return helpers
-    .run(path.resolve(__dirname, "../index"))
+    .run(path.resolve(__dirname, "../index.ts"))
     .inTmpDir(dir => {
       testFolderPath = dir;
     })
