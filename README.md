@@ -8,7 +8,7 @@ my personal opinionated [Yeoman](https://yeoman.io/) generator for Typescript, E
 
 With force upgrade all packages build in.
 
-All configuration that can use cosmic config is located in `package.json`.  
+Most configuration is handled using [@inpyjamas/scripts](https://github.com/inpyjamas/scripts).
 
 Except for
 
@@ -37,8 +37,7 @@ This will create (in the current working directory) the following setup(s)
 
 ### Type `typescript-express`
 
-Creates a setup with: 
-
+Creates a setup with:
 
 - Typescript
 - Jest
