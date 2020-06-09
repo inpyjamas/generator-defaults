@@ -10,11 +10,11 @@ module.exports = merge(common, {
   bail: true,
   output: {
     filename: "index.bundle.js",
-    chunkFilename: "[name].[chunkhash:8].chunk.js"
+    chunkFilename: "[name].[chunkhash:8].chunk.js",
   },
   plugins: [
     new Webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production")
-    })
-  ]
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    }),
+  ],
 });
