@@ -15,14 +15,6 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {},
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jest-environment-node",
-    "testPathIgnorePatterns": [
-      "node_modules/",
-      "<rootDir>/dist"
-    ]
-  },
   "nodemonConfig": {
     "ignore": [
       "**/*.test.ts",
@@ -40,71 +32,6 @@
     "env": {
       "NODE_ENV": "development",
       "NODE_DOCKER_ENV": "0"
-    }
-  },
-  "prettier": {
-    "printWidth": 80
-  },
-  "renovate": {
-    "extends": [
-      "config:base"
-    ],
-    "packageRules": [
-      {
-        "updateTypes": [
-          "minor",
-          "patch",
-          "pin",
-          "digest"
-        ],
-        "automerge": true
-      }
-    ]
-  },
-  "eslintConfig": {
-    "ignorePatterns": [
-      "node_modules",
-      "dist",
-      "coverage"
-    ],
-    "env": {
-      "jest/globals": true
-    },
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier/@typescript-eslint",
-      "plugin:jest/recommended"
-    ],
-    "rules": {
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          "args": "after-used",
-          "varsIgnorePattern": "^_",
-          "argsIgnorePattern": "^_"
-        }
-      ]
-    }
-  },
-  "lint-staged": {
-    "**/*.+(js|jsx|ts|tsx)": [
-      "eslint --fix"
-    ],
-    "**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md)": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm t && npm run lint-staged"
     }
   },
   "config": {

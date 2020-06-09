@@ -3,19 +3,20 @@ export const devDependencies: Dependencies = {
   shared: [
     "@types/jest",
     "@types/node",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
+    // "@typescript-eslint/eslint-plugin",
+    // "@typescript-eslint/parser",
     "cz-conventional-changelog",
-    "eslint-config-prettier",
-    "eslint-plugin-jest",
-    "eslint-plugin-prettier",
-    "eslint",
-    "jest",
-    "prettier",
-    "ts-jest",
-    "typescript",
-    "husky",
-    "lint-staged"
+    // "eslint-config-prettier",
+    // "eslint-plugin-jest",
+    // "eslint-plugin-prettier",
+    // "eslint",
+    // "jest",
+    // "prettier",
+    // "ts-jest",
+    // "typescript",
+    // "husky",
+    // "lint-staged",
+    "@inpyjamas/scripts",
   ],
   "typescript-express": ["@types/express", "@types/morgan", "nodemon"],
   "typescript-jekyll-webpack": [
@@ -35,7 +36,7 @@ export const devDependencies: Dependencies = {
     "ts-loader",
     "webpack",
     "webpack-cli",
-    "webpack-merge"
+    "webpack-merge",
   ],
-  basiljs: []
+  basiljs: [],
 };
