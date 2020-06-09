@@ -2,3 +2,4 @@ node_modules
 dist
 coverage
 generators/index.js
+generators/app/

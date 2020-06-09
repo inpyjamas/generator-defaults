@@ -4,5 +4,5 @@ exports.dependencies = void 0;
 exports.dependencies = {
     "typescript-express": ["cors", "dotenv", "express", "morgan"],
     "typescript-jekyll-webpack": ["bulma"],
-    basiljs: ["basiljs/basil.js#develop"]
+    basiljs: ["basiljs/basil.js#develop"],
 };
