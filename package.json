@@ -25,7 +25,7 @@
   "main": "generators/index.js",
   "devDependencies": {
     "@inpyjamas/scripts": "0.1.0-alpha",
-    "@types/jest": "25.2.3",
+    "@types/jest": "26.0.0",
     "@types/node": "12.12.45",
     "@types/rimraf": "3.0.0",
     "@types/yeoman-assert": "3.1.1",
