@@ -24,7 +24,7 @@
   },
   "main": "generators/index.js",
   "devDependencies": {
-    "@inpyjamas/scripts": "0.1.0-alpha",
+    "@inpyjamas/scripts": "1.0.0",
     "@types/jest": "26.0.0",
     "@types/node": "12.12.45",
     "@types/rimraf": "3.0.0",
