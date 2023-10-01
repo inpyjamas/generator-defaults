@@ -19,7 +19,7 @@
   "author": "Fabian Morón Zirfas",
   "license": "MIT",
   "dependencies": {
-    "glob": "7.1.6",
+    "glob": "10.3.10",
     "yeoman-generator": "^4.10.1"
   },
   "main": "generators/index.js",
